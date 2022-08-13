@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tec_blog">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
    <application
         android:label="tec_blog"
         android:name="${applicationName}"
