@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/components/my_strings.dart';
 import 'package:tec_blog/viwe/my_cats.dart';
 
@@ -133,7 +130,7 @@ class RegesterIntro extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => MyCats(),
+                          builder: (context) => const MyCats(),
                         ));
                       },
                       child: const Text("ادامه"))

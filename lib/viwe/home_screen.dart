@@ -4,12 +4,11 @@ import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:tec_blog/controller/home_screen_conroller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/models/article_model.dart';
 import 'package:tec_blog/models/fakeData.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/components/my_strings.dart';
 
-import '../models/data_models.dart';
+import '../components/my_component.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({
@@ -91,9 +90,7 @@ class HomeScreen extends StatelessWidget {
                       end: Alignment.topCenter,
                       colors: GradiantColors.blogPost)),
             ),
-            placeholder: (context, url) => const SpinKitCircle(
-              color: SolidColors.primeryColor,
-            ),
+            placeholder: (context, url) => LoadingSpinKit(),
           ),
         ),
         Container(
@@ -192,10 +189,7 @@ class HomeScreen extends StatelessWidget {
                                         end: Alignment.topCenter,
                                         colors: GradiantColors.blogPost)),
                               ),
-                              placeholder: (context, url) =>
-                                  const SpinKitCircle(
-                                color: SolidColors.primeryColor,
-                              ),
+                              placeholder: (context, url) => LoadingSpinKit(),
                               errorWidget: (context, url, error) => const Icon(
                                 Icons.image_not_supported_outlined,
                                 size: 50,
