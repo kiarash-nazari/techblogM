@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/models/data_models.dart';
 import 'package:tec_blog/models/fakeData.dart';
-import 'package:tec_blog/my_colors.dart';
-import 'package:tec_blog/my_strings.dart';
+import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/components/my_strings.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({Key? key}) : super(key: key);
@@ -173,3 +173,5 @@ class _MyCatsState extends State<MyCats> {
     ));
   }
 }
+
+MainTags({required TextTheme textTheme, required int index}) {}

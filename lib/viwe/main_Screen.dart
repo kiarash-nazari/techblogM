@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:tec_blog/components/my_strings.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/my_colors.dart';
-import 'package:tec_blog/my_component.dart';
+import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/components/my_component.dart';
 import 'package:tec_blog/viwe/home_screen.dart';
 import 'package:tec_blog/viwe/profile_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-class _MainScreenState extends State<MainScreen> {
-  var selectedPageIndex = 0;
+class MainScreen extends StatelessWidget {
+  RxInt selectedPageIndex = 0.obs;
+
+  MainScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -67,12 +65,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   ListTile(
-                    title: Text(
-                      "پروفایل کاربری",
-                      style: textTheme.headline4,
-                    ),
-                    onTap: () {},
-                  ),
+                      title: Text(
+                        "پروفایل کاربری",
+                        style: textTheme.headline4,
+                      ),
+                      onTap: (() {
+                        selectedPageIndex.value = 1;
+                        _key.currentState!.closeDrawer();
+                      })),
                   const Divider(
                     color: Color.fromARGB(191, 57, 56, 56),
                   ),
@@ -91,7 +91,9 @@ class _MainScreenState extends State<MainScreen> {
                       "اشتراک گذاری تک بلاگ",
                       style: textTheme.headline4,
                     ),
-                    onTap: () {},
+                    onTap: () async {
+                      await Share.share(MyStrings.shareText);
+                    },
                   ),
                   const Divider(
                     color: Color.fromARGB(191, 57, 56, 56),
@@ -101,7 +103,9 @@ class _MainScreenState extends State<MainScreen> {
                       "تک بلاگ در گیت هاب ",
                       style: textTheme.headline4,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      myLaunchGitUrl(MyStrings.techBlogGithubUrlString);
+                    },
                   ),
                 ],
               ),
@@ -109,26 +113,26 @@ class _MainScreenState extends State<MainScreen> {
           ),
           body: Stack(
             children: [
-              IndexedStack(
-                index: selectedPageIndex,
-                children: [
-                  HomeScreen(
-                      size: size, textTheme: textTheme, bodyMargin: bodyMargin),
-                  Positioned.fill(
-                    child: ProfileScreen(
-                        size: size,
-                        textTheme: textTheme,
-                        bodyMargin: bodyMargin),
-                  )
-                ],
-              ),
+              Obx((() => IndexedStack(
+                    index: selectedPageIndex.value,
+                    children: [
+                      HomeScreen(
+                          size: size,
+                          textTheme: textTheme,
+                          bodyMargin: bodyMargin),
+                      Positioned.fill(
+                        child: ProfileScreen(
+                            size: size,
+                            textTheme: textTheme,
+                            bodyMargin: bodyMargin),
+                      )
+                    ],
+                  ))),
               NavigationBtns(
                 size: size,
                 bodyMargin: bodyMargin,
                 changeScreen: (int value) {
-                  setState(() {
-                    selectedPageIndex = value;
-                  });
+                  selectedPageIndex.value = value;
                 },
               )
             ],

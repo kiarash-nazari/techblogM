@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/my_colors.dart';
-import 'package:tec_blog/my_strings.dart';
+import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/components/my_strings.dart';
 import 'package:tec_blog/viwe/my_cats.dart';
 
 class RegesterIntro extends StatelessWidget {
