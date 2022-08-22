@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tec_blog/models/fakeData.dart';
-import 'package:tec_blog/my_colors.dart';
+import 'package:tec_blog/components/my_colors.dart';
 
 import '../gen/assets.gen.dart';
 
@@ -43,45 +43,4 @@ class PodcastModel {
       required this.writer,
       required this.title,
       required this.id});
-}
-
-class MainTags extends StatelessWidget {
-  MainTags({
-    Key? key,
-    required this.textTheme,
-    required this.index,
-  }) : super(key: key);
-
-  final TextTheme textTheme;
-
-  var index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
-          gradient: const LinearGradient(
-              colors: GradiantColors.tags,
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft)),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-        child: Row(
-          children: [
-            Image.asset(
-              Assets.icons.hashtagicon.keyName,
-              height: 16,
-              width: 16,
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Text(tagList[index].title, style: textTheme.headline2)
-          ],
-        ),
-      ),
-    );
-  }
 }

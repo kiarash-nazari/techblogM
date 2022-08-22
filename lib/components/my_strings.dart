@@ -11,6 +11,8 @@ class MyStrings {
   static const String logOut = "خروج از حساب کاربری";
   static const String insertYourEmail = "لطفا ایمیلت رو وارد کن";
   static const String activateCode = "کد فعال سازی رو وارد کن ";
+  static const String techBlogGithubUrlString =
+      "https://github.com/sasansafari/techblog/";
   static const String chooseCats = "دسته بندی هایی که دوست داری رو انتخاب کن";
   static const String welcom = """به تک‌بلاگ خوش اومدی
 
@@ -20,5 +22,10 @@ class MyStrings {
   static const String successfulRegistration = """
 تبریک میگم ، ایمیل با موفقیت تایید شد
 لطفا اطلاعات ثبت نام رو کامل کن
+""";
+
+  static const String shareText = """
+من از تک بلاگ استفاده میکنم خیلی باحاله توم داشته باش
+Tec Blog
 """;
 }
