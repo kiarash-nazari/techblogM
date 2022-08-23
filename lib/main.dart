@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:tec_blog/viwe/main_Screen.dart';
 import 'package:tec_blog/viwe/singel.dart';
 
 void main() {

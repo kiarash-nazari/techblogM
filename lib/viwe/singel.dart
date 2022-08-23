@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import '../components/my_component.dart';
 
 class Singel extends StatelessWidget {
@@ -108,13 +108,30 @@ class Singel extends StatelessWidget {
           """
 <h1>sasansafari</h1>
 
-
 """,
           textStyle: textTheme.caption,
           enableCaching: true,
           onLoadingBuilder: (context, element, loadingProgress) =>
               LoadingSpinKit(),
-        )
+        ),
+        SizedBox(
+          width: double.infinity,
+          height: 50,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 8,
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 100,
+                  height: 20,
+                  color: Colors.amber,
+                ),
+              );
+            },
+          ),
+        ),
       ]),
     ));
   }
