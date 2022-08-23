@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:tec_blog/components/api_constant.dart';
 
 class ArticleModel {

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:tec_blog/models/fakeData.dart';
-import 'package:tec_blog/components/my_colors.dart';
 
-import '../gen/assets.gen.dart';
 
 class HashTagModel {
   String title;

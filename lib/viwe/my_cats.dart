@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/models/data_models.dart';
 import 'package:tec_blog/models/fakeData.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/components/my_strings.dart';
@@ -23,13 +22,13 @@ class _MyCatsState extends State<MyCats> {
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.only(left: bodyMargin, right: bodyMargin),
           child: Center(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 SvgPicture.asset(
@@ -40,13 +39,13 @@ class _MyCatsState extends State<MyCats> {
                     style: textTheme.headline4),
                 TextField(
                   style: textTheme.headline4,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: "نام و نام خانوادگی",
                       hintStyle:
                           TextStyle(color: Color.fromARGB(159, 38, 36, 36))),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 Text(MyStrings.chooseCats, style: textTheme.headline4),
@@ -60,7 +59,7 @@ class _MyCatsState extends State<MyCats> {
                     width: double.infinity,
                     height: 85,
                     child: GridView.builder(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemCount: tagList.length,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -88,7 +87,7 @@ class _MyCatsState extends State<MyCats> {
                                                   onPressed: () {
                                                     Navigator.pop(context);
                                                   },
-                                                  child: Text("حله"))
+                                                  child: const Text("حله"))
                                             ],
                                           ));
                                 } else {
@@ -102,7 +101,7 @@ class _MyCatsState extends State<MyCats> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Image.asset(
@@ -118,7 +117,7 @@ class _MyCatsState extends State<MyCats> {
                     width: double.infinity,
                     height: 85,
                     child: GridView.builder(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemCount: myCatsTags.length,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,

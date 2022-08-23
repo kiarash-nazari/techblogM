@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tec_blog/viwe/main_Screen.dart';
-import 'package:tec_blog/viwe/regester_intro.dart';
+import 'package:tec_blog/viwe/singel.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(width: 2),
+            borderSide: const BorderSide(width: 2),
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -98,7 +97,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: Singel(),
     );
   }
 }

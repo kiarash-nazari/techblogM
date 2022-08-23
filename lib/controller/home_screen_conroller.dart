@@ -1,11 +1,8 @@
-import 'dart:developer';
 
-import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:tec_blog/components/api_constant.dart';
 import 'package:tec_blog/models/article_model.dart';
-import 'package:tec_blog/models/data_models.dart';
-import 'package:tec_blog/models/fakeData.dart';
+
 import 'package:tec_blog/models/podcasts_model.dart';
 import 'package:tec_blog/models/poster_model%20.dart';
 import 'package:tec_blog/services/dio_service.dart';
