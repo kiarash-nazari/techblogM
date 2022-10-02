@@ -3,11 +3,13 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:tec_blog/controller/home_screen_conroller.dart';
+import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:tec_blog/controller/single_article_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/models/fakeData.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/components/my_strings.dart';
+import 'package:tec_blog/viwe/article_list-screen.dart';
 
 import '../components/my_component.dart';
 
@@ -21,6 +23,9 @@ class HomeScreen extends StatelessWidget {
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
   SingleArticleController singleArticleController =
       Get.put(SingleArticleController());
+
+  ListArticleController listArticleController =
+      Get.put(ListArticleController());
 
   final Size size;
   final TextTheme textTheme;
@@ -273,29 +278,35 @@ class HomeScreen extends StatelessWidget {
                       8,
                       index == 0 ? bodyMargin : 15,
                       8),
-                  child: Container(
-                    height: 60,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
-                        gradient: const LinearGradient(
-                            colors: GradiantColors.tags,
-                            begin: Alignment.centerRight,
-                            end: Alignment.centerLeft)),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            Assets.icons.hashtagicon.keyName,
-                            height: 16,
-                            width: 16,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Text(homeScreenController.tagList[index].title!,
-                              style: textTheme.headline2)
-                        ],
+                  child: GestureDetector(
+                    onTap: () {
+                      listArticleController.getArticleWithTagId(
+                          homeScreenController.tagList[index].id!);
+                    },
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24),
+                          gradient: const LinearGradient(
+                              colors: GradiantColors.tags,
+                              begin: Alignment.centerRight,
+                              end: Alignment.centerLeft)),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.icons.hashtagicon.keyName,
+                              height: 16,
+                              width: 16,
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Text(homeScreenController.tagList[index].title!,
+                                style: textTheme.headline2)
+                          ],
+                        ),
                       ),
                     ),
                   ));
@@ -399,9 +410,14 @@ class SeeMoreBlog extends StatelessWidget {
           const SizedBox(
             width: 8,
           ),
-          Text(
-            MyStrings.viewHotestBlog,
-            style: textTheme.headline3,
+          GestureDetector(
+            onTap: () {
+              Get.to(ArticleListScreen());
+            },
+            child: Text(
+              MyStrings.viewHotestBlog,
+              style: textTheme.headline3,
+            ),
           )
         ],
       ),

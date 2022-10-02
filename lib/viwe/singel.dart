@@ -140,12 +140,10 @@ class Singel extends StatelessWidget {
                         itemCount: singleArticleController.tagsList.length,
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
-                            onTap: () async {
-                              var TgaId =
-                                  singleArticleController.tagsList[index].id!;
-                              await Get.find<ListArticleController>()
-                                  .getArticleWithTagId(TgaId);
-                              Get.to(ArticleListScreen());
+                            onTap: () {
+                              Get.find<ListArticleController>()
+                                  .getArticleWithTagId(singleArticleController
+                                      .tagsList[index].id!);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
