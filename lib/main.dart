@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:tec_blog/viwe/article_list-screen.dart';
 import 'package:tec_blog/viwe/main_Screen.dart';
 import 'package:tec_blog/viwe/singel.dart';
+import 'package:tec_blog/viwe/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,19 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
 
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
-      localizationsDelegates: const [
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale("fa", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales
-      ],
-      locale: const Locale(
-          "fa", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales,
-
+      locale: const Locale('fa'),
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(
@@ -98,7 +91,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: Singel(),
+      home: SplashScreen(),
     );
   }
 }
