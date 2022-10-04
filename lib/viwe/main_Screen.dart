@@ -7,6 +7,7 @@ import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/components/my_component.dart';
 import 'package:tec_blog/viwe/home_screen.dart';
 import 'package:tec_blog/viwe/profile_screen.dart';
+import 'package:tec_blog/viwe/Regester/regester_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
@@ -180,7 +181,10 @@ class NavigationBtns extends StatelessWidget {
                     onPressed: (() => changeScreen(0)),
                     icon: Image.asset(Assets.icons.home.path)),
                 IconButton(
-                    onPressed: (() {}),
+                    onPressed: (() {
+                      //TODO if regesterd don't go to RegesteIntro
+                      Get.to(RegesterIntro());
+                    }),
                     icon: Image.asset(Assets.icons.write.path)),
                 IconButton(
                     onPressed: (() {

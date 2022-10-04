@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:tec_blog/controller/regester_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/components/my_strings.dart';
 import 'package:tec_blog/viwe/my_cats.dart';
 
 class RegesterIntro extends StatelessWidget {
-  const RegesterIntro({Key? key}) : super(key: key);
+  RegesterIntro({Key? key}) : super(key: key);
+
+  RegesterController regesterController = Get.put(RegesterController());
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +74,7 @@ class RegesterIntro extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(24),
                     child: TextField(
+                      controller: regesterController.emailTextEditingController,
                       style: textTheme.headline5,
                       textAlign: TextAlign.center,
                       decoration: const InputDecoration(
@@ -81,6 +86,7 @@ class RegesterIntro extends StatelessWidget {
                   ),
                   ElevatedButton(
                       onPressed: () {
+                        regesterController.regester();
                         Navigator.pop(context);
                         _ActiveCodeBottomSheet(context, size, textTheme);
                       },
@@ -118,6 +124,9 @@ class RegesterIntro extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(24),
                     child: TextField(
+                      // TODO input has to convert to english digits
+                      controller:
+                          regesterController.activeTextEditingController,
                       style: textTheme.headline5,
                       textAlign: TextAlign.center,
                       decoration: const InputDecoration(
@@ -129,9 +138,10 @@ class RegesterIntro extends StatelessWidget {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const MyCats(),
-                        ));
+                        regesterController.activeCode();
+                        // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        //   builder: (context) => const MyCats(),
+                        // ));
                       },
                       child: const Text("ادامه"))
                 ],
