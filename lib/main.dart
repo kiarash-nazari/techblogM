@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec_blog/components/my_colors.dart';
@@ -6,8 +8,13 @@ import 'package:tec_blog/viwe/article_list-screen.dart';
 import 'package:tec_blog/viwe/main_Screen.dart';
 import 'package:tec_blog/viwe/singel.dart';
 import 'package:tec_blog/viwe/splash_screen.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+import 'my_http_overrides.dart';
+
+void main() async {
+  HttpOverrides.global = MyHttpOverrides();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

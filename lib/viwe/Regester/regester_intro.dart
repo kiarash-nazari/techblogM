@@ -139,8 +139,7 @@ class RegesterIntro extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         regesterController.activeCode();
-                        // Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        //   builder: (context) => const MyCats(),
+                          
                         // ));
                       },
                       child: const Text("ادامه"))

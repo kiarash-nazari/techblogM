@@ -17,7 +17,7 @@ class DioService {
     dio.options.headers['Content-Type'] = 'application/json';
     return await dio
         .post(url,
-            data: FormData.fromMap(map),
+            data: dio_formdata.FormData.fromMap(map),
             options: Options(responseType: ResponseType.json, method: 'Post'))
         .then((value) {
       return value;
