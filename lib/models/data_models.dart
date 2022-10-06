@@ -32,6 +32,7 @@ class PodcastModel {
   String imageUrl;
   String writer;
   String title;
+  // ignore: prefer_typing_uninitialized_variables
   var id;
 
   PodcastModel(

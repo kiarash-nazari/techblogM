@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:tec_blog/components/api_constant.dart';
@@ -15,11 +14,6 @@ class SingleArticleController extends GetxController {
   RxList<TagsModel> tagsList = RxList();
   RxList<ArticleListModel> relatedList = RxList();
 
-  @override
-  onInit() {
-    super.onInit();
-    // getSingleArticle();
-  }
 
   getSingleArticle(var id) async {
     var userId = "";

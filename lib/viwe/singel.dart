@@ -5,10 +5,10 @@ import 'package:get/get.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/viwe/article_list-screen.dart';
 import '../components/my_component.dart';
 import '../controller/single_article_controller.dart';
 
+// ignore: must_be_immutable
 class Singel extends StatelessWidget {
   Singel({Key? key}) : super(key: key);
 

@@ -35,45 +35,46 @@ myLaunchGitUrl(String url) async {
   }
 }
 
-
- PreferredSize myAppBar(String title) {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(80),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          actions: [
-            Center(
-                child: Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                title,
-                style: appBarTextStyle,
-              ),
-            ))
-          ],
-          leading: Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: SolidColors.primeryColor.withAlpha(175),
-              ),
-              child: const Icon(
-                Icons.keyboard_arrow_right_rounded,
-              ),
+PreferredSize myAppBar(String title) {
+  return PreferredSize(
+    preferredSize: const Size.fromHeight(80),
+    child: Padding(
+      padding: const EdgeInsets.all(12),
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          Center(
+              child: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              title,
+              style: appBarTextStyle,
+            ),
+          ))
+        ],
+        leading: Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: SolidColors.primeryColor.withAlpha(175),
+            ),
+            child: const Icon(
+              Icons.keyboard_arrow_right_rounded,
             ),
           ),
         ),
       ),
-    );
-  }
-    SpinKitCircle LoadingSpinKit() {
-    return const SpinKitCircle(
-            color: SolidColors.primeryColor,
-          );
-  }
+    ),
+  );
+}
+
+// ignore: non_constant_identifier_names
+SpinKitCircle LoadingSpinKit() {
+  return const SpinKitCircle(
+    color: SolidColors.primeryColor,
+  );
+}

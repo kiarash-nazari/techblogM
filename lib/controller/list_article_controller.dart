@@ -27,6 +27,7 @@ class ListArticleController extends GetxController {
     }
   }
 
+  // ignore: non_constant_identifier_names
   getArticleWithTagId(String Id) async {
     articleList.clear();
     var response = await DioService().getMethod(

@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:tec_blog/components/api_constant.dart';
 
 class PosterModel {

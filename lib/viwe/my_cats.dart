@@ -173,4 +173,5 @@ class _MyCatsState extends State<MyCats> {
   }
 }
 
+// ignore: non_constant_identifier_names
 MainTags({required TextTheme textTheme, required int index}) {}

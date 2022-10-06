@@ -37,11 +37,10 @@ class RegesterController extends GetxController {
 
     var response = await DioService().postMethod(map, ApiConstant.postRegester);
 
-
     if (response.data["response"] == "valid") {
       final box = GetStorage();
       box.write(token, response.data["token"]);
-      box.write(user_Id, response.data["user_id"]);
+      box.write(userIdForSaveInStorage, response.data["user_id"]);
       Get.to(MainScreen());
     } else {
       log("message error from regester code not correct");

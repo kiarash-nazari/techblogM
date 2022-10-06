@@ -13,6 +13,7 @@ import 'package:tec_blog/viwe/article_list-screen.dart';
 
 import '../components/my_component.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({
     Key? key,

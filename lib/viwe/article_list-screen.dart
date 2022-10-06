@@ -1,14 +1,13 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:tec_blog/viwe/singel.dart';
 
 import '../components/my_component.dart';
 import '../controller/single_article_controller.dart';
 
+// ignore: must_be_immutable
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({Key? key}) : super(key: key);
 
@@ -25,6 +24,7 @@ class ArticleListScreen extends StatelessWidget {
       child: Scaffold(
         appBar: myAppBar("لیست مقالات"),
         body: Obx(() => SizedBox(
+              // ignore: unrelated_type_equality_checks
               child: listArticleController.loading == false
                   ? ListView.builder(
                       itemCount: listArticleController.articleList.length,

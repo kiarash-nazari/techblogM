@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
@@ -11,6 +12,7 @@ import 'package:tec_blog/viwe/Regester/regester_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
+// ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
   RxInt selectedPageIndex = 0.obs;
 

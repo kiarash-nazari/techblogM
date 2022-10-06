@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:tec_blog/controller/regester_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/components/my_strings.dart';
-import 'package:tec_blog/viwe/my_cats.dart';
 
+// ignore: must_be_immutable
 class RegesterIntro extends StatelessWidget {
   RegesterIntro({Key? key}) : super(key: key);
 

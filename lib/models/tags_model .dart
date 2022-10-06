@@ -1,3 +1,4 @@
+// ignore: file_names
 class TagsModel {
   String? id;
   String? title;
