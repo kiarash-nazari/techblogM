@@ -37,14 +37,30 @@ class RegesterController extends GetxController {
 
     var response = await DioService().postMethod(map, ApiConstant.postRegester);
 
-    if (response.data["response"] == "valid") {
-      final box = GetStorage();
-      box.write(token, response.data["token"]);
-      box.write(userIdForSaveInStorage, response.data["user_id"]);
-      Get.to(MainScreen());
-    } else {
-      log("message error from regester code not correct");
-    }
+    var status = response.data["response"];
     print(response.data);
+
+    switch (status) {
+      case 'verified':
+        final box = GetStorage();
+        box.write(token, response.data["token"]);
+        box.write(userIdForSaveInStorage, response.data["user_id"]);
+        Get.to(MainScreen());
+        break;
+      case 'false':
+        Get.snackbar("خطا", "کد وارد شده صحیح نمیباشد");
+        break;
+      case 'expired':
+        Get.snackbar("خطا", "کد وارد شده منقضی شده است");
+        break;
+    }
+  }
+
+  toggleLogIn() {
+    if (GetStorage().read(token) == null) {
+      Get.to(regester());
+    } else {
+      print("post screen");
+    }
   }
 }

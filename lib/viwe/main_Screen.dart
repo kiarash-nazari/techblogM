@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tec_blog/components/my_strings.dart';
+import 'package:tec_blog/controller/regester_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/components/my_colors.dart';
 import 'package:tec_blog/components/my_component.dart';
@@ -145,7 +146,8 @@ class MainScreen extends StatelessWidget {
 }
 
 class NavigationBtns extends StatelessWidget {
-  const NavigationBtns({
+  RegesterController regesterController = Get.put(RegesterController());
+  NavigationBtns({
     Key? key,
     required this.size,
     required this.bodyMargin,
@@ -184,8 +186,7 @@ class NavigationBtns extends StatelessWidget {
                     icon: Image.asset(Assets.icons.home.path)),
                 IconButton(
                     onPressed: (() {
-                      //TODO if regesterd don't go to RegesteIntro
-                      Get.to(RegesterIntro());
+                      regesterController.toggleLogIn();
                     }),
                     icon: Image.asset(Assets.icons.write.path)),
                 IconButton(
