@@ -9,7 +9,7 @@ import 'package:tec_blog/components/my_strings.dart';
 class RegesterIntro extends StatelessWidget {
   RegesterIntro({Key? key}) : super(key: key);
 
-  RegesterController regesterController = Get.put(RegesterController());
+  var regesterController = Get.find<RegesterController>();
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +139,7 @@ class RegesterIntro extends StatelessWidget {
                   ElevatedButton(
                       onPressed: () {
                         regesterController.activeCode();
-                          
+
                         // ));
                       },
                       child: const Text("ادامه"))

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
+import 'package:tec_blog/main.dart';
 import 'main_Screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,11 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3)).then(
-      (value) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => MainScreen()),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 3))
+        .then((value) => Get.offAllNamed(routeMainScreen));
   }
 
   @override

@@ -6,6 +6,7 @@ import 'package:tec_blog/models/tags_model%20.dart';
 import 'package:tec_blog/services/dio_service.dart';
 import 'package:tec_blog/viwe/singel.dart';
 
+import '../main.dart';
 import '../models/article_sngle_model.dart';
 
 class SingleArticleController extends GetxController {
@@ -36,7 +37,7 @@ class SingleArticleController extends GetxController {
         loading.value = false;
       });
 
-      Get.to(Singel());
+      Get.toNamed(routeSingleArticle);
     }
   }
 }

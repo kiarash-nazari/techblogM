@@ -146,7 +146,6 @@ class MainScreen extends StatelessWidget {
 }
 
 class NavigationBtns extends StatelessWidget {
-  RegesterController regesterController = Get.put(RegesterController());
   NavigationBtns({
     Key? key,
     required this.size,
@@ -186,7 +185,7 @@ class NavigationBtns extends StatelessWidget {
                     icon: Image.asset(Assets.icons.home.path)),
                 IconButton(
                     onPressed: (() {
-                      regesterController.toggleLogIn();
+                      Get.find<RegesterController>().toggleLogIn();
                     }),
                     icon: Image.asset(Assets.icons.write.path)),
                 IconButton(

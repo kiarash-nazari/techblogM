@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec_blog/controller/list_article_controller.dart';
@@ -11,10 +10,13 @@ import '../controller/single_article_controller.dart';
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({Key? key}) : super(key: key);
 
-  ListArticleController listArticleController =
-      Get.put(ListArticleController());
-  SingleArticleController singleArticleController =
-      Get.put(SingleArticleController());
+  // ListArticleController listArticleController =
+  //     Get.put(ListArticleController());
+  // SingleArticleController singleArticleController =
+  //     Get.put(SingleArticleController());
+
+  var listArticleController = Get.find<ListArticleController>();
+  var singleArticleController = Get.find<SingleArticleController>();
 
   @override
   Widget build(BuildContext context) {
