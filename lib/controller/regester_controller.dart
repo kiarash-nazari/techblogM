@@ -45,7 +45,7 @@ class RegesterController extends GetxController {
         final box = GetStorage();
         box.write(token, response.data["token"]);
         box.write(userIdForSaveInStorage, response.data["user_id"]);
-        Get.to(MainScreen());
+        Get.offAll(MainScreen());
         break;
       case 'false':
         Get.snackbar("خطا", "کد وارد شده صحیح نمیباشد");
