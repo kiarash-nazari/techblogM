@@ -10,6 +10,10 @@ class DioService {
             options: Options(responseType: ResponseType.json, method: 'GET'))
         .then((response) {
       return response;
+    }).catchError((err) {
+      if (err is DioError) {
+        return err.response!;
+      }
     });
   }
 
@@ -19,8 +23,12 @@ class DioService {
         .post(url,
             data: dio_formdata.FormData.fromMap(map),
             options: Options(responseType: ResponseType.json, method: 'Post'))
-        .then((value) {
-      return value;
+        .then((response) {
+      return response;
+    }).catchError((err) {
+      if (err is DioError) {
+        return err.response!;
+      }
     });
   }
 }
