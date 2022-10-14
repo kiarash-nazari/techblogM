@@ -37,6 +37,14 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/write.png
   AssetGenImage get write => const AssetGenImage('assets/icons/write.png');
+
+  /// File path: assets/icons/write_article.png
+  AssetGenImage get writeArticle =>
+      const AssetGenImage('assets/icons/write_article.png');
+
+  /// File path: assets/icons/write_podcast_icon.png
+  AssetGenImage get writePodcastIcon =>
+      const AssetGenImage('assets/icons/write_podcast_icon.png');
 }
 
 class $AssetsImagesGen {
@@ -53,7 +61,7 @@ class $AssetsImagesGen {
   AssetGenImage get programming =>
       const AssetGenImage('assets/images/programming.png');
 
-  /// File path: assets/images/singlePlaceHolder.png
+  /// File path: assets/images/singlePlaceHolder.jpg
   AssetGenImage get singlePlaceHolder =>
       const AssetGenImage('assets/images/singlePlaceHolder.jpg');
 

@@ -1,10 +1,13 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tec_blog/components/api_constant.dart';
 import 'package:tec_blog/components/storage_const.dart';
+import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/services/dio_service.dart';
 import 'package:tec_blog/viwe/main_Screen.dart';
 
@@ -60,7 +63,94 @@ class RegesterController extends GetxController {
     if (GetStorage().read(token) == null) {
       Get.to(regester());
     } else {
-      print("post screen");
+      bottomSheetForWritePodcastOrArticle();
     }
+  }
+
+  bottomSheetForWritePodcastOrArticle() {
+    Get.bottomSheet(Container(
+      height: Get.height / 3,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20),
+          topLeft: Radius.circular(20),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(
+                  Assets.images.tcBotSvg.path,
+                  height: 40,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const Text("دانسته هایت را با بقیه به اشتراک بگذار ..."),
+              ],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+                """ .فکر کن!!! اینجا بودنت به این معناست که یک گیگ تکنلوژی هستی... دانسته هایت را با بقیه گیگ تکنلوژی های ایران به اشتراک بگذار"""),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    print("clicked");
+                  },
+                  child: Container(
+                    height: 60,
+                    color: Colors.transparent,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          Assets.icons.writeArticle.path,
+                          height: 32,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text("مدیریت مقاله ها")
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    print("clicked");
+                  },
+                  child: Container(
+                    height: 60,
+                    color: Colors.transparent,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          Assets.icons.writePodcastIcon.path,
+                          height: 32,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text("مدیریت پادکست ها")
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    ));
   }
 }
