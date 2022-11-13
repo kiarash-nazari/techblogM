@@ -6,20 +6,20 @@ import 'package:tec_blog/controller/home_screen_conroller.dart';
 import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:tec_blog/controller/single_article_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
+import 'package:tec_blog/main.dart';
 import 'package:tec_blog/models/fakeData.dart';
-import 'package:tec_blog/components/my_colors.dart';
-import 'package:tec_blog/components/my_strings.dart';
+import 'package:tec_blog/constant/my_colors.dart';
+import 'package:tec_blog/constant/my_strings.dart';
 import 'package:tec_blog/viwe/article_list-screen.dart';
 
 import '../components/my_component.dart';
+import '../constant/dimens.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({
     Key? key,
-    required this.size,
     required this.textTheme,
-    required this.bodyMargin,
   }) : super(key: key);
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
   SingleArticleController singleArticleController =
@@ -28,9 +28,7 @@ class HomeScreen extends StatelessWidget {
   ListArticleController listArticleController =
       Get.put(ListArticleController());
 
-  final Size size;
   final TextTheme textTheme;
-  final double bodyMargin;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +52,11 @@ class HomeScreen extends StatelessWidget {
                             height: 32,
                           ),
                           SeeMoreBlog(
-                              bodyMargin: bodyMargin, textTheme: textTheme),
+                            textTheme: textTheme,
+                            title: 'مشاهده داغترین نوشته ها',
+                          ),
                           topVisited(),
-                          SeeMorePodcast(
-                              bodyMargin: bodyMargin, textTheme: textTheme),
+                          SeeMorePodcast(textTheme: textTheme),
                           topPodcasts(),
                           const SizedBox(
                             height: 60,
@@ -83,8 +82,8 @@ class HomeScreen extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: size.width / 1.25,
-          height: size.height / 4.2,
+          width: Get.width / 1.25,
+          height: Get.height / 4.2,
           child: CachedNetworkImage(
             imageUrl: homeScreenController.poster.value.image!,
             imageBuilder: (context, imageProvider) => Container(
@@ -103,8 +102,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: size.width / 1.25,
-          height: size.height / 4.2,
+          width: Get.width / 1.25,
+          height: Get.height / 4.2,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: const LinearGradient(
@@ -159,7 +158,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget topVisited() {
     return SizedBox(
-      height: size.height / 3.5,
+      height: Get.height / 3.5,
       child: Obx(
         () => ListView.builder(
             itemCount: homeScreenController.topVisitedList.length,
@@ -172,14 +171,15 @@ class HomeScreen extends StatelessWidget {
                       homeScreenController.topPodcastList[index].id);
                 },
                 child: Padding(
-                  padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
+                  padding: EdgeInsets.only(
+                      right: index == 0 ? Dimens.bodyMargin : 15),
                   child: Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
-                          height: size.height / 5.3,
-                          width: size.width / 2.4,
+                          height: Get.height / 5.3,
+                          width: Get.width / 2.4,
                           child: Stack(
                             children: [
                               CachedNetworkImage(
@@ -249,7 +249,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                          width: size.width / 2.4,
+                          width: Get.width / 2.4,
                           child: Text(
                             homeScreenController.topVisitedList[index].title!,
                             overflow: TextOverflow.ellipsis,
@@ -275,9 +275,9 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                   padding: EdgeInsets.fromLTRB(
-                      index == tagList.length - 1 ? bodyMargin : 0,
+                      index == tagList.length - 1 ? Dimens.bodyMargin : 0,
                       8,
-                      index == 0 ? bodyMargin : 15,
+                      index == 0 ? Dimens.bodyMargin : 15,
                       8),
                   child: GestureDetector(
                     onTap: () {
@@ -318,7 +318,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget topPodcasts() {
     return SizedBox(
-      height: size.height / 3.1,
+      height: Get.height / 3.1,
       child: Obx(
         () => ListView.builder(
           itemCount: homeScreenController.topPodcastList.length,
@@ -328,17 +328,17 @@ class HomeScreen extends StatelessWidget {
               onTap: () {},
               child: Padding(
                 padding: EdgeInsets.fromLTRB(
-                    index == podCastList.length - 1 ? bodyMargin : 15,
+                    index == podCastList.length - 1 ? Dimens.bodyMargin : 15,
                     8,
-                    index == 0 ? bodyMargin : 15,
+                    index == 0 ? Dimens.bodyMargin : 15,
                     8),
                 child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
-                          width: size.width / 2.4,
-                          height: size.height / 5.3,
+                          width: Get.width / 2.4,
+                          height: Get.height / 5.3,
                           child: CachedNetworkImage(
                             imageUrl: homeScreenController
                                 .topPodcastList[index].poster!,
@@ -365,7 +365,7 @@ class HomeScreen extends StatelessWidget {
                       height: 8,
                     ),
                     SizedBox(
-                      width: size.width / 2.4,
+                      width: Get.width / 2.4,
                       child: Padding(
                         padding: const EdgeInsets.only(right: 17),
                         child: Text(
@@ -387,59 +387,18 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class SeeMoreBlog extends StatelessWidget {
-  const SeeMoreBlog({
-    Key? key,
-    required this.bodyMargin,
-    required this.textTheme,
-  }) : super(key: key);
-
-  final double bodyMargin;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(right: bodyMargin, bottom: 8),
-      child: Row(
-        children: [
-          Image.asset(
-            Assets.icons.bluePen.path,
-            height: 16,
-            width: 16,
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          GestureDetector(
-            onTap: () {
-              Get.to(ArticleListScreen());
-            },
-            child: Text(
-              MyStrings.viewHotestBlog,
-              style: textTheme.headline3,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
 class SeeMorePodcast extends StatelessWidget {
   const SeeMorePodcast({
     Key? key,
-    required this.bodyMargin,
     required this.textTheme,
   }) : super(key: key);
 
-  final double bodyMargin;
   final TextTheme textTheme;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: bodyMargin, bottom: 8, top: 16),
+      padding: EdgeInsets.only(right: Dimens.bodyMargin, bottom: 8, top: 16),
       child: Row(
         children: [
           Image.asset(

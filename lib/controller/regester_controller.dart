@@ -5,11 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tec_blog/components/api_constant.dart';
-import 'package:tec_blog/components/storage_const.dart';
+import 'package:tec_blog/constant/api_constant.dart';
+import 'package:tec_blog/constant/storage_const.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
+import 'package:tec_blog/main.dart';
 import 'package:tec_blog/services/dio_service.dart';
 import 'package:tec_blog/viwe/main_Screen.dart';
+
+import '../viwe/Regester/regester_intro.dart';
 
 class RegesterController extends GetxController {
   TextEditingController emailTextEditingController = TextEditingController();
@@ -46,8 +49,8 @@ class RegesterController extends GetxController {
     switch (status) {
       case 'verified':
         final box = GetStorage();
-        box.write(token, response.data["token"]);
-        box.write(userIdForSaveInStorage, response.data["user_id"]);
+        box.write(StorageKey.token, response.data["token"]);
+        box.write(StorageKey.userIdForSaveInStorage, response.data["user_id"]);
         Get.offAll(MainScreen());
         break;
       case 'false':
@@ -60,8 +63,9 @@ class RegesterController extends GetxController {
   }
 
   toggleLogIn() {
-    if (GetStorage().read(token) == null) {
-      Get.to(regester());
+    if (GetStorage().read(StorageKey.token) == null) {
+      Get.to(RegesterIntro());
+      bottomSheetForWritePodcastOrArticle();
     } else {
       bottomSheetForWritePodcastOrArticle();
     }
@@ -107,6 +111,7 @@ class RegesterController extends GetxController {
                 GestureDetector(
                   onTap: () {
                     print("clicked");
+                    Get.toNamed(NamedRoute.routeManageArticle);
                   },
                   child: Container(
                     height: 60,

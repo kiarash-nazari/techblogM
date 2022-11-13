@@ -18,6 +18,7 @@ class MyStrings {
 
 برای ارسال مطلب و پادکست باید حتما 
 ثبت نام کنی """;
+  static const String emptyState = """هنوز هیچ مقاله ای به جامعه گیگ های فارسی اضافه نکردی""";
 
   static const String successfulRegistration = """
 تبریک میگم ، ایمیل با موفقیت تایید شد

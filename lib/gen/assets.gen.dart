@@ -50,6 +50,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/empty_state.png
+  AssetGenImage get emptyState =>
+      const AssetGenImage('assets/images/empty_state.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 

@@ -2,10 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:tec_blog/components/my_strings.dart';
+import 'package:tec_blog/constant/dimens.dart';
+import 'package:tec_blog/constant/my_strings.dart';
 import 'package:tec_blog/controller/regester_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/components/my_component.dart';
 import 'package:tec_blog/viwe/home_screen.dart';
 import 'package:tec_blog/viwe/profile_screen.dart';
@@ -21,8 +22,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
-    var size = MediaQuery.of(context).size;
-    var bodyMargin = size.width / 10;
+
 
     return SafeArea(
       child: Scaffold(
@@ -46,8 +46,8 @@ class MainScreen extends StatelessWidget {
                 ),
                 Image(
                   image: AssetImage(Assets.images.logo.path),
-                  height: size.height / 13.64,
-                  width: size.width / 3.73,
+                  height: Get.height / 13.64,
+                  width: Get.width / 3.73,
                 ),
                 const Icon(
                   Icons.search,
@@ -59,7 +59,7 @@ class MainScreen extends StatelessWidget {
           drawer: Drawer(
             backgroundColor: SolidColors.surFace,
             child: Padding(
-              padding: EdgeInsets.only(left: bodyMargin, right: bodyMargin),
+              padding: EdgeInsets.only(left: Dimens.bodyMargin, right: Dimens.bodyMargin),
               child: ListView(
                 children: [
                   DrawerHeader(
@@ -121,20 +121,17 @@ class MainScreen extends StatelessWidget {
                     index: selectedPageIndex.value,
                     children: [
                       HomeScreen(
-                          size: size,
                           textTheme: textTheme,
-                          bodyMargin: bodyMargin),
+),
                       Positioned.fill(
                         child: ProfileScreen(
-                            size: size,
                             textTheme: textTheme,
-                            bodyMargin: bodyMargin),
+                            ),
                       )
                     ],
                   ))),
               NavigationBtns(
-                size: size,
-                bodyMargin: bodyMargin,
+
                 changeScreen: (int value) {
                   selectedPageIndex.value = value;
                 },
@@ -148,13 +145,11 @@ class MainScreen extends StatelessWidget {
 class NavigationBtns extends StatelessWidget {
   NavigationBtns({
     Key? key,
-    required this.size,
-    required this.bodyMargin,
+
     required this.changeScreen,
   }) : super(key: key);
 
-  final Size size;
-  final double bodyMargin;
+
   final Function(int) changeScreen;
 
   @override
@@ -164,7 +159,7 @@ class NavigationBtns extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        height: size.height / 10,
+        height: Get.height / 10,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: GradiantColors.bottomNavigationBackground,
@@ -172,7 +167,7 @@ class NavigationBtns extends StatelessWidget {
               end: Alignment.bottomCenter),
         ),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(bodyMargin, 10, bodyMargin, 8),
+          padding: EdgeInsets.fromLTRB(Dimens.bodyMargin, 10, Dimens.bodyMargin, 8),
           child: Container(
             decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: GradiantColors.bottonNav),

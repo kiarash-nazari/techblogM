@@ -1,6 +1,5 @@
-
 import 'package:get/get.dart';
-import 'package:tec_blog/components/api_constant.dart';
+import 'package:tec_blog/constant/api_constant.dart';
 import 'package:tec_blog/models/article_list_model.dart';
 import 'package:tec_blog/models/tags_model%20.dart';
 import 'package:tec_blog/services/dio_service.dart';
@@ -11,14 +10,13 @@ import '../models/article_sngle_model.dart';
 
 class SingleArticleController extends GetxController {
   RxBool loading = true.obs;
-  Rx<ArticleSingleModel> articleSingleModle = ArticleSingleModel().obs;
+  Rx<ArticleSingleModel> articleSingleModle = ArticleSingleModel(null,null,null).obs;
   RxList<TagsModel> tagsList = RxList();
   RxList<ArticleListModel> relatedList = RxList();
 
-
   getSingleArticle(var id) async {
     var userId = "";
-    articleSingleModle = ArticleSingleModel().obs;
+    articleSingleModle = ArticleSingleModel(null,null,null).obs;
 
     var response = await DioService().getMethod(
         "${ApiConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId");
@@ -37,7 +35,7 @@ class SingleArticleController extends GetxController {
         loading.value = false;
       });
 
-      Get.toNamed(routeSingleArticle);
+      Get.toNamed(NamedRoute.routeSingleArticle);
     }
   }
 }

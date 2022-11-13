@@ -2,26 +2,27 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:tec_blog/components/text_style.dart';
+import 'package:get/get.dart';
+import 'package:tec_blog/constant/text_style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'my_colors.dart';
+import '../constant/dimens.dart';
+import '../constant/my_colors.dart';
+import '../gen/assets.gen.dart';
+import '../viwe/article_list-screen.dart';
 
 class TechDivide extends StatelessWidget {
   const TechDivide({
     Key? key,
-    required this.size,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return Divider(
       color: const Color.fromARGB(191, 57, 56, 56),
       thickness: 2,
-      indent: size.width / 6,
-      endIndent: size.width / 6,
+      indent: Get.width / 6,
+      endIndent: Get.width / 6,
     );
   }
 }
@@ -55,15 +56,20 @@ PreferredSize myAppBar(String title) {
         ],
         leading: Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: SolidColors.primeryColor.withAlpha(175),
-            ),
-            child: const Icon(
-              Icons.keyboard_arrow_right_rounded,
+          child: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: SolidColors.primeryColor.withAlpha(175),
+              ),
+              child: const Icon(
+                Icons.keyboard_arrow_right_rounded,
+              ),
             ),
           ),
         ),
@@ -77,4 +83,45 @@ SpinKitCircle LoadingSpinKit() {
   return const SpinKitCircle(
     color: SolidColors.primeryColor,
   );
+}
+
+class SeeMoreBlog extends StatelessWidget {
+  const SeeMoreBlog({
+    Key? key,
+    required this.textTheme,
+    required this.title,
+  }) : super(key: key);
+
+  final TextTheme textTheme;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: Dimens.bodyMargin, bottom: 8),
+      child: Row(
+        children: [
+          Image.asset(
+            Assets.icons.bluePen.path,
+            height: 16,
+            width: 16,
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+          GestureDetector(
+            onTap: () {
+              if (title == 'مشاهده داغترین نوشته ها') {
+                Get.to(ArticleListScreen());
+              }
+            },
+            child: Text(
+              title,
+              style: textTheme.headline3,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }

@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3))
-        .then((value) => Get.offAllNamed(routeMainScreen));
+        .then((value) => Get.offAllNamed(NamedRoute.routeMainScreen));
   }
 
   @override

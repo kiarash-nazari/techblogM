@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
-import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/components/my_component.dart';
-import 'package:tec_blog/components/my_strings.dart';
+import 'package:tec_blog/constant/my_strings.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({
     Key? key,
-    required this.size,
     required this.textTheme,
-    required this.bodyMargin,
   }) : super(key: key);
 
-  final Size size;
   final TextTheme textTheme;
-  final double bodyMargin;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            TechDivide(size: size),
+            TechDivide(),
             InkWell(
               splashColor: SolidColors.primeryColor,
               onTap: () {},
@@ -76,7 +72,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            TechDivide(size: size),
+            TechDivide(),
             InkWell(
               splashColor: SolidColors.primeryColor,
               onTap: () {},
@@ -90,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            TechDivide(size: size),
+            TechDivide(),
             InkWell(
               splashColor: SolidColors.primeryColor,
               onTap: () {},

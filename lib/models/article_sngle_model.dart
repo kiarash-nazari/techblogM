@@ -1,5 +1,4 @@
-
-import 'package:tec_blog/components/api_constant.dart';
+import 'package:tec_blog/constant/api_constant.dart';
 
 class ArticleSingleModel {
   String? id;
@@ -13,8 +12,8 @@ class ArticleSingleModel {
   String? status;
   String? createdAt;
   bool? isFavorite;
-
-  ArticleSingleModel();
+  //TODO اصلاحات
+  ArticleSingleModel(this.title, this.content, this.image);
 
   ArticleSingleModel.fromJson(Map<String, dynamic> element) {
     id = element['info']['id'];

@@ -3,13 +3,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec_blog/binding.dart';
-import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/viwe/article_list-screen.dart';
 import 'package:tec_blog/viwe/main_Screen.dart';
+import 'package:tec_blog/viwe/single_manage_article.dart';
 import 'package:tec_blog/viwe/splash_screen.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'my_http_overrides.dart';
+import 'viwe/mange_article.dart';
 import 'viwe/singel.dart';
 
 void main() async {
@@ -29,13 +31,21 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: [
         GetPage(
-            name: routeMainScreen,
+            name: NamedRoute.routeMainScreen,
             page: () => MainScreen(),
             binding: RegesterBunding()),
         GetPage(
-            name: routeSingleArticle,
+            name: NamedRoute.routeSingleArticle,
             page: () => Singel(),
-            binding: ArticleBinding())
+            binding: ArticleBinding()),
+        GetPage(
+            name: NamedRoute.routeManageArticle,
+            page: () => ManageArticle(),
+            binding: ManageArticleBinding()),
+        GetPage(
+            name: NamedRoute.routeSingleManageArticle,
+            page: () => SingelManageArticle(),
+            binding: ManageArticleBinding()),
       ],
       title: 'Flutter Demo',
       locale: const Locale('fa'),
@@ -118,5 +128,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const String routeMainScreen = "/MainScreen";
-const String routeSingleArticle = "/ArticleList";
+class NamedRoute {
+  static String routeMainScreen = "/MainScreen";
+  static String routeSingleArticle = "/ArticleList";
+  static String routeManageArticle = "/ManageArticle";
+  static String routeSingleManageArticle = "/SingleManageArticle";
+}

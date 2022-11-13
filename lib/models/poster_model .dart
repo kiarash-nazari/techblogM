@@ -1,5 +1,5 @@
 // ignore: file_names
-import 'package:tec_blog/components/api_constant.dart';
+import 'package:tec_blog/constant/api_constant.dart';
 
 class PosterModel {
   String? id;

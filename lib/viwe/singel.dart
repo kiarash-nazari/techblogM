@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
-import 'package:tec_blog/components/my_colors.dart';
+import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import '../components/my_component.dart';
@@ -55,25 +55,30 @@ class Singel extends StatelessWidget {
                                     colors: GradiantColors.singleAppBarCover)),
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  SizedBox(width: 16),
-                                  Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
+                                children: [
+                                  const SizedBox(width: 16),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.back();
+                                    },
+                                    child: const Icon(
+                                      Icons.arrow_back,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                  Expanded(child: SizedBox()),
-                                  Icon(
+                                  const Expanded(child: SizedBox()),
+                                  const Icon(
                                     Icons.bookmark_border_rounded,
                                     color: Colors.white,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.share,
                                     color: Colors.white,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 16,
                                   )
                                 ]),
@@ -172,7 +177,7 @@ class Singel extends StatelessWidget {
                       height: size.height / 4.3,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         itemCount: singleArticleController.relatedList.length,
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
