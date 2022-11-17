@@ -11,6 +11,7 @@ import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:tec_blog/controller/manage_article_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
 import 'package:tec_blog/services/file_picker.dart';
+import 'package:tec_blog/viwe/html_editor_manager.dart';
 import '../components/my_component.dart';
 import '../controller/single_article_controller.dart';
 
@@ -20,6 +21,29 @@ class SingelManageArticle extends StatelessWidget {
 
   var manageArticleController = Get.find<ManageArticleController>();
   FilePickerController filePickerController = Get.put(FilePickerController());
+
+  void getTitle() {
+    Get.defaultDialog(
+        title: "انتخاب موضوع",
+        titleStyle: const TextStyle(color: Colors.white),
+        content: TextField(
+          controller: manageArticleController.titleTextEditingController,
+          keyboardType: TextInputType.text,
+          style: const TextStyle(color: SolidColors.seeMore),
+          decoration: const InputDecoration(
+              hintText: "عنوان مقاله را بنویسید",
+              filled: true,
+              fillColor: Colors.white),
+        ),
+        backgroundColor: SolidColors.primeryColor,
+        radius: 8,
+        confirm: ElevatedButton(
+            onPressed: () {
+              manageArticleController.updateTitle();
+              Get.back();
+            },
+            child: const Text("ثبت")));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +164,9 @@ class SingelManageArticle extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              SeeMoreBlog(textTheme: textTheme, title: "متن"),
+              GestureDetector(
+                  onTap: () => Get.to(HtmlEditorManager()),
+                  child: SeeMoreBlog(textTheme: textTheme, title: "متن")),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: HtmlWidget(
@@ -160,23 +186,4 @@ class SingelManageArticle extends StatelessWidget {
       ),
     );
   }
-}
-
-void getTitle() {
-  Get.defaultDialog(
-      title: "انتخاب موضوع",
-      content: TextField(
-        keyboardType: TextInputType.text,
-        style: TextStyle(color: SolidColors.seeMore),
-        decoration: InputDecoration(
-            hintText: "عنوان مقاله را بنویسید",
-            filled: true,
-            fillColor: Colors.white),
-      ),
-      backgroundColor: SolidColors.primeryColor,
-      confirm: ElevatedButton(
-          onPressed: () {
-            Get.back();
-          },
-          child: Text("ثبت")));
 }

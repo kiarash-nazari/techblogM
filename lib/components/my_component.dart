@@ -109,16 +109,9 @@ class SeeMoreBlog extends StatelessWidget {
           const SizedBox(
             width: 8,
           ),
-          GestureDetector(
-            onTap: () {
-              if (title == 'مشاهده داغترین نوشته ها') {
-                Get.to(ArticleListScreen());
-              }
-            },
-            child: Text(
-              title,
-              style: textTheme.headline3,
-            ),
+          Text(
+            title,
+            style: textTheme.headline3,
           )
         ],
       ),

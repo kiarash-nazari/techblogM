@@ -33,19 +33,19 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: NamedRoute.routeMainScreen,
             page: () => MainScreen(),
-            binding: RegesterBunding()),
+            binding: RegesterBunding(),transition: Transition.fadeIn ),
         GetPage(
             name: NamedRoute.routeSingleArticle,
             page: () => Singel(),
-            binding: ArticleBinding()),
+            binding: ArticleBinding(),transition: Transition.downToUp),
         GetPage(
             name: NamedRoute.routeManageArticle,
             page: () => ManageArticle(),
-            binding: ManageArticleBinding()),
+            binding: ManageArticleBinding(),transition: Transition.zoom ),
         GetPage(
             name: NamedRoute.routeSingleManageArticle,
             page: () => SingelManageArticle(),
-            binding: ManageArticleBinding()),
+            binding: ManageArticleBinding(),transition: Transition.leftToRight),
       ],
       title: 'Flutter Demo',
       locale: const Locale('fa'),

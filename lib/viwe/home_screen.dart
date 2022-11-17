@@ -51,9 +51,14 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(
                             height: 32,
                           ),
-                          SeeMoreBlog(
-                            textTheme: textTheme,
-                            title: 'مشاهده داغترین نوشته ها',
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(ArticleListScreen());
+                            },
+                            child: SeeMoreBlog(
+                              textTheme: textTheme,
+                              title: 'مشاهده داغترین نوشته ها',
+                            ),
                           ),
                           topVisited(),
                           SeeMorePodcast(textTheme: textTheme),

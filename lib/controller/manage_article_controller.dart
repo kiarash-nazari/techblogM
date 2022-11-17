@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tec_blog/constant/storage_const.dart';
@@ -10,8 +11,10 @@ import '../services/dio_service.dart';
 
 class ManageArticleController extends GetxController {
   RxList<ArticleListModel> articleList = RxList();
-  Rx<ArticleSingleModel> articleSingleModle = ArticleSingleModel("اینجا چیزی تیتر بذار", "اینجا متن بذار", "").obs;
+  Rx<ArticleSingleModel> articleSingleModle =
+      ArticleSingleModel("اینجا چیزی تیتر بذار", "اینجا متن بذار", "").obs;
   RxList<TagsModel> tagsList = RxList();
+  TextEditingController titleTextEditingController = TextEditingController();
   RxBool loading = RxBool(true);
 
   @override
@@ -31,5 +34,11 @@ class ManageArticleController extends GetxController {
       });
       loading.value = false;
     }
+  }
+
+  updateTitle() {
+    articleSingleModle.update((val) {
+      val!.title = titleTextEditingController.text;
+    });
   }
 }
