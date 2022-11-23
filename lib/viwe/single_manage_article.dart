@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:tec_blog/constant/dimens.dart';
 import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/controller/file_picker_controller.dart';
+import 'package:tec_blog/controller/home_screen_conroller.dart';
 import 'package:tec_blog/controller/list_article_controller.dart';
 import 'package:tec_blog/controller/manage_article_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
@@ -179,11 +180,78 @@ class SingelManageArticle extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              SeeMoreBlog(textTheme: textTheme, title: "تگ ها"),
+              GestureDetector(
+                  onTap: () {
+                    chooseCatsBottomSheet();
+                  },
+                  child: SeeMoreBlog(textTheme: textTheme, title: "تگ ها")),
             ]),
           ),
         ),
       ),
     );
+  }
+
+  SizedBox cats() {
+    var homeScreenController = Get.find<HomeScreenController>();
+    return SizedBox(
+      width: double.infinity,
+      height: Get.height / 1.7,
+      child: GridView.builder(
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
+        scrollDirection: Axis.vertical,
+        itemCount: homeScreenController.tagList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              Get.find<ListArticleController>()
+                  .getArticleWithTagId(homeScreenController.tagList[index].id!);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 100,
+                height: 20,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(25),
+                    ),
+                    color: SolidColors.primeryColor),
+                child: Center(
+                  child: Text(
+                    homeScreenController.tagList[index].title!,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, crossAxisSpacing: 5),
+      ),
+    );
+  }
+
+  chooseCatsBottomSheet() {
+    Get.bottomSheet(Container(
+      height: Get.height / 1.5,
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("انتخاب دسته بندی"),
+            ),
+            cats(),
+          ],
+        ),
+      ),
+    ));
   }
 }
