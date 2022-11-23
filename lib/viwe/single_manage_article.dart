@@ -235,23 +235,25 @@ class SingelManageArticle extends StatelessWidget {
   }
 
   chooseCatsBottomSheet() {
-    Get.bottomSheet(Container(
-      height: Get.height / 1.5,
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("انتخاب دسته بندی"),
+    Get.bottomSheet(
+        Container(
+          height: Get.height / 1.5,
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("انتخاب دسته بندی"),
+                ),
+                cats(),
+              ],
             ),
-            cats(),
-          ],
+          ),
         ),
-      ),
-    ));
+        persistent: true);
   }
 }
