@@ -185,6 +185,16 @@ class SingelManageArticle extends StatelessWidget {
                     chooseCatsBottomSheet();
                   },
                   child: SeeMoreBlog(textTheme: textTheme, title: "تگ ها")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    manageArticleController.articleSingleModle.value.catName ==
+                            null
+                        ? "دسته بندی خالی است"
+                        : manageArticleController
+                            .articleSingleModle.value.catName!),
+              ),
+              
             ]),
           ),
         ),
@@ -205,8 +215,12 @@ class SingelManageArticle extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Get.find<ListArticleController>()
-                  .getArticleWithTagId(homeScreenController.tagList[index].id!);
+              manageArticleController.articleSingleModle.update((val) {
+                val?.catName = homeScreenController.tagList[index].title!;
+                val?.catId = homeScreenController.tagList[index].id!;
+              });
+
+              Get.back();
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

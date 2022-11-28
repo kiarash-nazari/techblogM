@@ -34,8 +34,9 @@ class HtmlEditorManager extends StatelessWidget {
                 ),
                 callbacks: Callbacks(
                   onChangeContent: (p0) {
-                    manageArticleController.articleSingleModle.value.content =
-                        p0;
+                    manageArticleController.articleSingleModle.update((val) {
+                      val?.content = p0;
+                    });
                     log(manageArticleController.articleSingleModle.value.content
                         .toString());
                   },
