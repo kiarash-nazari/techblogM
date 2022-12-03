@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tec_blog/constant/dimens.dart';
+import 'package:tec_blog/constant/my_decoration.dart';
 import 'package:tec_blog/constant/my_strings.dart';
 import 'package:tec_blog/controller/regester_controller.dart';
 import 'package:tec_blog/gen/assets.gen.dart';
@@ -22,7 +23,6 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
-
 
     return SafeArea(
       child: Scaffold(
@@ -59,7 +59,8 @@ class MainScreen extends StatelessWidget {
           drawer: Drawer(
             backgroundColor: SolidColors.surFace,
             child: Padding(
-              padding: EdgeInsets.only(left: Dimens.bodyMargin, right: Dimens.bodyMargin),
+              padding: EdgeInsets.only(
+                  left: Dimens.bodyMargin, right: Dimens.bodyMargin),
               child: ListView(
                 children: [
                   DrawerHeader(
@@ -121,17 +122,16 @@ class MainScreen extends StatelessWidget {
                     index: selectedPageIndex.value,
                     children: [
                       HomeScreen(
-                          textTheme: textTheme,
-),
+                        textTheme: textTheme,
+                      ),
                       Positioned.fill(
                         child: ProfileScreen(
-                            textTheme: textTheme,
-                            ),
+                          textTheme: textTheme,
+                        ),
                       )
                     ],
                   ))),
               NavigationBtns(
-
                 changeScreen: (int value) {
                   selectedPageIndex.value = value;
                 },
@@ -145,10 +145,8 @@ class MainScreen extends StatelessWidget {
 class NavigationBtns extends StatelessWidget {
   NavigationBtns({
     Key? key,
-
     required this.changeScreen,
   }) : super(key: key);
-
 
   final Function(int) changeScreen;
 
@@ -167,11 +165,10 @@ class NavigationBtns extends StatelessWidget {
               end: Alignment.bottomCenter),
         ),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(Dimens.bodyMargin, 10, Dimens.bodyMargin, 8),
+          padding:
+              EdgeInsets.fromLTRB(Dimens.bodyMargin, 10, Dimens.bodyMargin, 8),
           child: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: GradiantColors.bottonNav),
-                borderRadius: BorderRadius.all(Radius.circular(18))),
+            decoration: MyDecoration.mainGradient,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
