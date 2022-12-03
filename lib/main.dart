@@ -6,6 +6,7 @@ import 'package:tec_blog/binding.dart';
 import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/viwe/article_list-screen.dart';
 import 'package:tec_blog/viwe/main_Screen.dart';
+import 'package:tec_blog/viwe/podcasts.dart/single_podcast.dart';
 import 'package:tec_blog/viwe/single_manage_article.dart';
 import 'package:tec_blog/viwe/splash_screen.dart';
 import 'package:get_storage/get_storage.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale('fa'),
       theme: LightTheme(textTheme),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const SinglePodcast(),
     );
   }
 

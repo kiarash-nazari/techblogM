@@ -18,7 +18,7 @@ class ArticleSingleModel {
   ArticleSingleModel.fromJson(Map<String, dynamic> element) {
     id = element['info']['id'];
     title = element['info']['title'];
-    image = ApiConstant.hostDlUrl + element['info']['image'];
+    image = ApiUrlConstant.hostDlUrl + element['info']['image'];
     catId = element['info']['cat_id'];
     catName = element['info']['cat_name'];
     content = element['info']['content'];

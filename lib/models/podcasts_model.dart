@@ -20,7 +20,7 @@ class PodcastsModel {
   PodcastsModel.fromJson(Map<String, dynamic> elementP) {
     id = elementP["id"];
     title = elementP["title"];
-    poster = ApiConstant.hostDlUrl + elementP["poster"];
+    poster = ApiUrlConstant.hostDlUrl + elementP["poster"];
     publisher = elementP["publisher"];
     viwe = elementP["view"];
     createdAt = elementP["created_at"];

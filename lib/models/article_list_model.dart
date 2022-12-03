@@ -12,20 +12,20 @@ class ArticleListModel {
   String? createdAt;
 
   ArticleListModel(
-      { this.id,
-       this.title,
-       this.image,
-       this.catId,
-       this.catName,
-       this.author,
-       this.view,
-       this.status,
-       this.createdAt});
+      {this.id,
+      this.title,
+      this.image,
+      this.catId,
+      this.catName,
+      this.author,
+      this.view,
+      this.status,
+      this.createdAt});
 
   ArticleListModel.fromJson(Map<String, dynamic> element) {
     id = element["id"];
     title = element["title"];
-    image = ApiConstant.hostDlUrl + element["image"];
+    image = ApiUrlConstant.hostDlUrl + element["image"];
     catId = element["cat_id"];
     catName = element["cat_name"];
     author = element["author"];

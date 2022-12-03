@@ -10,16 +10,17 @@ import '../models/article_sngle_model.dart';
 
 class SingleArticleController extends GetxController {
   RxBool loading = true.obs;
-  Rx<ArticleSingleModel> articleSingleModle = ArticleSingleModel(null,null,null).obs;
+  Rx<ArticleSingleModel> articleSingleModle =
+      ArticleSingleModel(null, null, null).obs;
   RxList<TagsModel> tagsList = RxList();
   RxList<ArticleListModel> relatedList = RxList();
 
   getSingleArticle(var id) async {
     var userId = "";
-    articleSingleModle = ArticleSingleModel(null,null,null).obs;
+    articleSingleModle = ArticleSingleModel(null, null, null).obs;
 
     var response = await DioService().getMethod(
-        "${ApiConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId");
+        "${ApiUrlConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId");
 
     if (response.statusCode == 200) {
       articleSingleModle.value = ArticleSingleModel.fromJson(response.data);

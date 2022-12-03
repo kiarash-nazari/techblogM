@@ -194,7 +194,12 @@ class SingelManageArticle extends StatelessWidget {
                         : manageArticleController
                             .articleSingleModle.value.catName!),
               ),
-              
+              ElevatedButton(
+                  onPressed: () async =>
+                      await manageArticleController.sendNewArticle(),
+                  child: Text(manageArticleController.loading.value
+                      ? "ارسال مطلب"
+                      : "صبر کنید"))
             ]),
           ),
         ),
