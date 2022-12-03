@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:tec_blog/components/my_component.dart';
 import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/constant/my_decoration.dart';
@@ -146,6 +147,42 @@ class SinglePodcast extends StatelessWidget {
                 child: Container(
                   height: Get.height / 7,
                   decoration: MyDecoration.mainGradient,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          LinearPercentIndicator(
+                            percent: 1.0,
+                            backgroundColor: Colors.white,
+                            progressColor: Colors.orange,
+                            barRadius: const Radius.circular(40),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: const [
+                              Icon(
+                                Icons.skip_next,
+                                color: Colors.white,
+                              ),
+                              Icon(
+                                Icons.play_circle_fill,
+                                color: Colors.white,
+                              ),
+                              Icon(
+                                Icons.skip_previous,
+                                color: Colors.white,
+                              ),
+                              SizedBox(),
+                              SizedBox(),
+                              Icon(
+                                Icons.repeat,
+                                color: Colors.white,
+                              ),
+                            ],
+                          )
+                        ]),
+                  ),
                 ))
           ],
         ),
