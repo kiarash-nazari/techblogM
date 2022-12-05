@@ -34,25 +34,29 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: NamedRoute.routeMainScreen,
             page: () => MainScreen(),
-            binding: RegesterBunding(),transition: Transition.fadeIn ),
+            binding: RegesterBunding(),
+            transition: Transition.fadeIn),
         GetPage(
             name: NamedRoute.routeSingleArticle,
             page: () => Singel(),
-            binding: ArticleBinding(),transition: Transition.downToUp),
+            binding: ArticleBinding(),
+            transition: Transition.downToUp),
         GetPage(
             name: NamedRoute.routeManageArticle,
             page: () => ManageArticle(),
-            binding: ManageArticleBinding(),transition: Transition.zoom ),
+            binding: ManageArticleBinding(),
+            transition: Transition.zoom),
         GetPage(
             name: NamedRoute.routeSingleManageArticle,
             page: () => SingelManageArticle(),
-            binding: ManageArticleBinding(),transition: Transition.leftToRight),
+            binding: ManageArticleBinding(),
+            transition: Transition.leftToRight),
       ],
       title: 'Flutter Demo',
       locale: const Locale('fa'),
       theme: LightTheme(textTheme),
       debugShowCheckedModeBanner: false,
-      home: const SinglePodcast(),
+      home: const SplashScreen(),
     );
   }
 
@@ -131,7 +135,7 @@ class MyApp extends StatelessWidget {
 
 class NamedRoute {
   static String routeMainScreen = "/MainScreen";
-  static String routeSingleArticle = "/ArticleList";
+  static String routeSingleArticle = "/Singel";
   static String routeManageArticle = "/ManageArticle";
   static String routeSingleManageArticle = "/SingleManageArticle";
 }

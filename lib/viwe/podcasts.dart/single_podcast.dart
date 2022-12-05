@@ -111,7 +111,7 @@ class SinglePodcast extends StatelessWidget {
                       ),
                     ),
                     ListView.builder(
-                      itemCount: 5,
+                      itemCount: 30,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(

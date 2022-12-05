@@ -15,9 +15,16 @@ class SingleArticleController extends GetxController {
   RxList<TagsModel> tagsList = RxList();
   RxList<ArticleListModel> relatedList = RxList();
 
+  List kiarash = [
+    {"id": 1},
+    {"title": "مقاله"}
+  ];
+
   getSingleArticle(var id) async {
     var userId = "";
     articleSingleModle = ArticleSingleModel(null, null, null).obs;
+    Get.toNamed(NamedRoute.routeSingleArticle);
+    
 
     var response = await DioService().getMethod(
         "${ApiUrlConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId");
@@ -35,8 +42,6 @@ class SingleArticleController extends GetxController {
         relatedList.add(ArticleListModel.fromJson(element));
         loading.value = false;
       });
-
-      Get.toNamed(NamedRoute.routeSingleArticle);
     }
   }
 }
