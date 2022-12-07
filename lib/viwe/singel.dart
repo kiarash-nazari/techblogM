@@ -146,6 +146,7 @@ class Singel extends StatelessWidget {
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
+
                               Get.find<ListArticleController>()
                                   .getArticleWithTagId(singleArticleController
                                       .tagsList[index].id!);
