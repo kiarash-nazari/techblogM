@@ -330,7 +330,10 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(NamedRoute.routeSinglePodcast,
+                    arguments: homeScreenController.topPodcastList[index]);
+              },
               child: Padding(
                 padding: EdgeInsets.fromLTRB(
                     index == podCastList.length - 1 ? Dimens.bodyMargin : 15,

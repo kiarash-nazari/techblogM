@@ -51,6 +51,10 @@ class MyApp extends StatelessWidget {
             page: () => SingelManageArticle(),
             binding: ManageArticleBinding(),
             transition: Transition.leftToRight),
+        GetPage(
+            name: NamedRoute.routeSinglePodcast,
+            page: () => SinglePodcast(),
+            transition: Transition.leftToRight),
       ],
       title: 'Flutter Demo',
       locale: const Locale('fa'),
@@ -134,8 +138,11 @@ class MyApp extends StatelessWidget {
 }
 
 class NamedRoute {
+  NamedRoute._();
+
   static String routeMainScreen = "/MainScreen";
   static String routeSingleArticle = "/Singel";
   static String routeManageArticle = "/ManageArticle";
   static String routeSingleManageArticle = "/SingleManageArticle";
+  static String routeSinglePodcast = "/SinglePodcast";
 }

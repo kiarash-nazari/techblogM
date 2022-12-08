@@ -5,15 +5,25 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:tec_blog/components/my_component.dart';
 import 'package:tec_blog/constant/my_colors.dart';
 import 'package:tec_blog/constant/my_decoration.dart';
+import 'package:tec_blog/controller/Podcast/podcast_single_controller.dart';
+import 'package:tec_blog/models/data_models.dart';
 
 import '../../constant/dimens.dart';
 import '../../gen/assets.gen.dart';
 
 class SinglePodcast extends StatelessWidget {
-  const SinglePodcast({Key? key}) : super(key: key);
+  late PodcastSingleController podcastSingleController;
+  late PodcastModel podcastModel;
+
+  SinglePodcast() {
+    podcastModel = Get.arguments;
+    podcastSingleController =
+        Get.put(PodcastSingleController(id: podcastModel.id));
+  }
 
   @override
   Widget build(BuildContext context) {
+    print(podcastSingleController.id);
     var textTheme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
