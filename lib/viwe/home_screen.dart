@@ -336,7 +336,7 @@ class HomeScreen extends StatelessWidget {
               },
               child: Padding(
                 padding: EdgeInsets.fromLTRB(
-                    index == podCastList.length - 1 ? Dimens.bodyMargin : 15,
+                    index == homeScreenController.topPodcastList.length - 1 ? Dimens.bodyMargin : 15,
                     8,
                     index == 0 ? Dimens.bodyMargin : 15,
                     8),

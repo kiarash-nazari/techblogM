@@ -8,21 +8,14 @@ class PodcastsModel {
   String? viwe;
   String? createdAt;
 
-  PodcastsModel({
-    required this.id,
-    required this.title,
-    required this.poster,
-    required this.publisher,
-    required this.viwe,
-    required this.createdAt,
-  });
+  PodcastsModel();
 
-  PodcastsModel.fromJson(Map<String, dynamic> elementP) {
-    id = elementP["id"];
-    title = elementP["title"];
-    poster = ApiUrlConstant.hostDlUrl + elementP["poster"];
-    publisher = elementP["publisher"];
-    viwe = elementP["view"];
-    createdAt = elementP["created_at"];
+  PodcastsModel.fromJson(Map<String, dynamic> element) {
+    id = element["id"];
+    title = element["title"];
+    poster = ApiUrlConstant.hostDlUrl + element["poster"];
+    publisher = element["author"];
+    viwe = element["view"];
+    createdAt = element["created_at"];
   }
 }

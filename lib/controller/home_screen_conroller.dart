@@ -32,8 +32,8 @@ class HomeScreenController extends GetxController {
         tagList.add(TagsModel.fromJson(element));
       });
 
-      response.data['top_podcasts'].forEach((elementP) {
-        topPodcastList.add(PodcastsModel.fromJson(elementP));
+      response.data['top_podcasts'].forEach((element) {
+        topPodcastList.add(PodcastsModel.fromJson(element));
       });
 
       poster.value = PosterModel.fromJson(response.data['poster']);
